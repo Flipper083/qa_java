@@ -1,12 +1,10 @@
 import com.example.Feline;
-
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
+
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public class FelineTest {
 
@@ -14,42 +12,35 @@ public class FelineTest {
 
     @Before
     public void setUp() {
-        feline = Mockito.mock(Feline.class);
-    }
-
-    @Test
-    public void testEatMeat() throws Exception {
-        when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-
-        List<String> food = feline.eatMeat();
-        assertNotNull(food);
-        assertTrue(food.contains("Животные"));
-        assertTrue(food.contains("Птицы"));
-        assertTrue(food.contains("Рыба"));
+        feline = new Feline(); // Используем реальный экземпляр Feline
     }
 
     @Test
     public void testGetFamily() {
-        when(feline.getFamily()).thenReturn("Кошачьи");
-
         String family = feline.getFamily();
-        assertEquals("Кошачьи", family);
+        assertEquals("Кошачьи", family); // Проверяем, что возвращается правильная семья
     }
 
     @Test
     public void testGetKittens() {
-        when(feline.getKittens()).thenReturn(1);
-
         int kittens = feline.getKittens();
-        assertEquals(1, kittens);
+        assertEquals(1, kittens); // Проверяем, что по умолчанию возвращается 1
     }
 
     @Test
     public void testGetKittensWithCount() {
         int count = 3;
-        when(feline.getKittens(count)).thenReturn(count);
-
         int kittensCount = feline.getKittens(count);
-        assertEquals(count, kittensCount);
+        assertEquals(count, kittensCount); // Проверяем, что возвращается переданное количество
+    }
+
+    @Test
+    public void testEatMeat() throws Exception {
+        // Проверяем, что метод eatMeat не выбрасывает исключение и возвращает ожидаемые значения
+        List<String> food = feline.eatMeat();
+        assertNotNull(food); // Проверяем, что результат не null
+        assertTrue(food.contains("Животные")); // Проверяем, что результат содержит "Животные"
+        assertTrue(food.contains("Птицы")); // Проверяем, что результат содержит "Птицы"
+        assertTrue(food.contains("Рыба")); // Проверяем, что результат содержит "Рыба"
     }
 }

@@ -6,21 +6,21 @@ import java.util.List;
 
     @Override
     public List&lt;String&gt; eatMeat() throws Exception {
-<span class="nc" id="L9">        return getFood(&quot;Хищник&quot;);</span>
+<span class="fc" id="L9">        return getFood(&quot;Хищник&quot;);</span>
     }
 
     @Override
     public String getFamily() {
-<span class="nc" id="L14">        return &quot;Кошачьи&quot;;</span>
+<span class="fc" id="L14">        return &quot;Кошачьи&quot;;</span>
     }
 
+    @Override // Добавлено
     public int getKittens() {
-<span class="nc" id="L18">        return getKittens(1);</span>
+<span class="fc" id="L19">        return getKittens(1);</span>
     }
 
     public int getKittens(int kittensCount) {
-<span class="nc" id="L22">        return kittensCount;</span>
+<span class="fc" id="L23">        return kittensCount;</span>
     }
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
