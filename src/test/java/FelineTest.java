@@ -38,9 +38,8 @@ public class FelineTest {
     public void testEatMeat() throws Exception {
         // Проверяем, что метод eatMeat не выбрасывает исключение и возвращает ожидаемые значения
         List<String> food = feline.eatMeat();
+        List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         assertNotNull(food); // Проверяем, что результат не null
-        assertTrue(food.contains("Животные")); // Проверяем, что результат содержит "Животные"
-        assertTrue(food.contains("Птицы")); // Проверяем, что результат содержит "Птицы"
-        assertTrue(food.contains("Рыба")); // Проверяем, что результат содержит "Рыба"
+        assertEquals(expectedFood, food); // Сравниваем два списка целиком
     }
 }
